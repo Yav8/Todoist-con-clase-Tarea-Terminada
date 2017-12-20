@@ -3,8 +3,8 @@ public class Tarea {
     private String tarea;
     private boolean tareaCompletada;
     
-    public Tarea(String textotarea) {
-        tarea = textotarea;
+    public Tarea(String textoTarea) {
+        tarea = textoTarea;
         tareaCompletada = false;
     }
     
