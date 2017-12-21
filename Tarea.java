@@ -8,10 +8,6 @@ public class Tarea {
         tareaCompletada = false;
     }
     
-    public void añadirTarea(String textoTarea) {
-        tarea = textoTarea;
-    }
-    
     public String obtenerTarea() {
         return tarea;
     }

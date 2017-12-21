@@ -4,23 +4,22 @@ import java.util.ArrayList;
  * Clase que permite almacenar las tareas pendientes que tenemos por hacer
  */
 public class Todoist {
-    
     private ArrayList<String> tareas;
     private ArrayList<Boolean> listaTareasEnModoBooleano;
-    private Tarea tarea;
+    
     /**
      * Constructor de la clase Todoist.
      */
-    public Todoist(Tarea textoTarea) {
+    public Todoist() {
         tareas = new ArrayList<String>();
         listaTareasEnModoBooleano = new ArrayList<Boolean>();
-        tarea = textoTarea;
     }
     
     /**
      * Inserta una nueva tarea
      */
-    public void addTarea() {
+    public void addTarea(String textoTarea) {
+        Tarea tarea = new Tarea(textoTarea);
         tareas.add(tarea.obtenerTarea());
         listaTareasEnModoBooleano.add(tarea.tareaEstaCompletada());
     }
@@ -37,10 +36,10 @@ public class Todoist {
         while(contador < tareas.size()) {
             tareaActual = tareas.get(contador);
             if(listaTareasEnModoBooleano.get(contador) == false) {
-                System.out.println("[ ]" + (contador + 1) + ". " + tareaActual);
+                System.out.println("[ ] " + (contador + 1) + ". " + tareaActual);
             }
             else {
-                System.out.println("[X]" + (contador + 1) + ". " + tareaActual);
+                System.out.println("[X] " + (contador + 1) + ". " + tareaActual);
             }
             contador += 1;
         }
