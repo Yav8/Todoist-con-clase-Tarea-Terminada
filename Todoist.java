@@ -4,14 +4,14 @@ import java.util.ArrayList;
  * Clase que permite almacenar las tareas pendientes que tenemos por hacer
  */
 public class Todoist {
-    private ArrayList<String> tareas;
+    private ArrayList<String> listaTareas;
     private ArrayList<Boolean> listaTareasEnModoBooleano;
     
     /**
      * Constructor de la clase Todoist.
      */
     public Todoist() {
-        tareas = new ArrayList<String>();
+        listaTareas = new ArrayList<String>();
         listaTareasEnModoBooleano = new ArrayList<Boolean>();
     }
     
@@ -20,7 +20,7 @@ public class Todoist {
      */
     public void addTarea(String textoTarea) {
         Tarea tarea = new Tarea(textoTarea);
-        tareas.add(tarea.obtenerTarea());
+        listaTareas.add(tarea.obtenerTarea());
         listaTareasEnModoBooleano.add(tarea.tareaEstaCompletada());
     }
 
@@ -33,8 +33,8 @@ public class Todoist {
     public void mostrarTareasNumeradas() {
         int contador = 0;
         String tareaActual = "";
-        while(contador < tareas.size()) {
-            tareaActual = tareas.get(contador);
+        while(contador < listaTareas.size()) {
+            tareaActual = listaTareas.get(contador);
             if(listaTareasEnModoBooleano.get(contador) == false) {
                 System.out.println("[ ] " + (contador + 1) + ". " + tareaActual);
             }
@@ -51,7 +51,7 @@ public class Todoist {
      * segunda, etc.
      */
     public void marcarComoCompletada(int indiceTarea) {
-        if(indiceTarea < listaTareasEnModoBooleano.size()) {
+        if(indiceTarea < listaTareasEnModoBooleano.size() && indiceTarea >= 0) {
             listaTareasEnModoBooleano.set(indiceTarea, true);
         }
         else {
